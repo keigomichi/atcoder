@@ -6,7 +6,5 @@ for v in a:
     while(v % 2 == 0):
         v //= 2
         cnt += 1
-        if v % 2 == 1:
-            break
     res = min(res, cnt)
 print(res)
