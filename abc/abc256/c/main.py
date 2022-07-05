@@ -9,8 +9,9 @@ for a in range(1, h1):
                 g = w1 - a - d
                 h = w2 - b - e
                 i = w3 - c - f
-                if i != h3 - g - h:
-                    continue
-                if c > 0 and f > 0 and g > 0 and h > 0 and i > 0:
+                # if i != h3 - g - h:
+                #     continue
+                # if c > 0 and f > 0 and g > 0 and h > 0 and i > 0:
+                if min(c, f, g, h, i) > 0 and g + h + i == h3:
                     res += 1
 print(res)
