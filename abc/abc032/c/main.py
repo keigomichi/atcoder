@@ -1,17 +1,18 @@
-n, q = map(int, input().split())
-a = list(map(int, input().split()))
-x = list(map(int, input().split()))
-for v in x:
-    res = 0
-    s = 0
-    r = 0
-    for l in range(n):
-        while r < n and s + a[r] <= v:
-            s += a[r]
-            r += 1
-        res += r - l
-        if r == l:
-            r += 1
-        else:
-            s -= a[l]
-    print(res)
+n, k = map(int, input().split())
+s = [int(input()) for _ in range(n)]
+if 0 in s:
+    print(n)
+    exit()
+res = 0
+pro = 1
+right = 0
+for left in range(n):
+    while right < n and pro * s[right] <= k:
+        pro *= s[right]
+        right += 1
+    res = max(right - left, res)
+    if right == left:
+        right += 1
+    else:
+        pro /= s[left]
+print(res)
