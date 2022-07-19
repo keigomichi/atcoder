@@ -1,16 +1,16 @@
 from math import gcd
 
 
-def my_lcm(x, y):
+def lcm(x, y):
     return (x * y) // gcd(x, y)
+
+
+def sum_ap(n, a, d):
+    return n * (2 * a + (n - 1) * d) // 2
 
 
 n, a, b = map(int, input().split())
 na = n // a
 nb = n // b
-nab = n // my_lcm(a, b)
-if a == b:
-    print(n * (n + 1) // 2 - a * na * (na + 1) // 2)
-    exit()
-print(n * (n + 1) // 2 - a * na * (na + 1) // 2 - b *
-      nb * (nb + 1) // 2 + my_lcm(a, b) * nab * (nab + 1) // 2)
+nab = n // lcm(a, b)
+print(sum_ap(n, 1, 1) - sum_ap(na, a, a) - sum_ap(nb, b, b) + sum_ap(nab, lcm(a, b), lcm(a, b)))

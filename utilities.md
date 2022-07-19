@@ -135,3 +135,19 @@ class MultiSet:
         else:
             return True
 ```
+
+## 最小公倍数
+
+https://note.nkmk.me/python-gcd-lcm/
+
+```python
+def lcm(x, y):
+    return (x * y) // gcd(x, y)
+```
+
+## 等差数列の和
+
+```python
+def sum_ap(n, a, d):
+    return n * (2 * a + (n - 1) * d) // 2
+```
