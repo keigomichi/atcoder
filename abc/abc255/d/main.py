@@ -12,11 +12,10 @@ def binary_search(key, n, a):
 
 n, q = map(int, input().split())
 a = sorted(list(map(int, input().split())))
-s = [0] * n
-s[0] = a[0]
-for i in range(1, n):
-    s[i] = s[i - 1] + a[i]
+s = [0] * (n + 1)
+for i in range(n):
+    s[i + 1] = s[i] + a[i]
 for _ in range(q):
     x = int(input())
     k = binary_search(x, n, a)
-    print(abs(s[k - 1] - k * x) + abs(s[n - 1] - s[k - 1] - (n - k) * x))
+    print(k * x - s[k] + s[n] - s[k] - (n - k) * x)
